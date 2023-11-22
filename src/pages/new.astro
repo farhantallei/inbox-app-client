@@ -1,0 +1,14 @@
+---
+import NewInbox from "../components/NewInbox.svelte"
+import Layout from "../layouts/Layout.astro"
+
+const SERVER_URL = import.meta.env.SERVER_URL as string
+---
+
+<Layout title="New chat">
+  <main>
+    <div class="h-screen flex justify-center items-center">
+      <NewInbox {SERVER_URL} client:only="svelte" />
+    </div>
+  </main>
+</Layout>

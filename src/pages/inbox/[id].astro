@@ -1,0 +1,20 @@
+---
+import ChatRoot from "../../components/ChatRoot.svelte";
+import Layout from "../../layouts/Layout.astro"
+
+interface Params extends Record<string, string | undefined> {
+  id: string
+}
+
+const { id } = Astro.params as Params
+const SERVER_URL = import.meta.env.SERVER_URL
+const WEBSOCKET_URL = import.meta.env.WEBSOCKET_URL
+---
+
+<Layout title="Chat">
+  <main>
+    <div class="h-screen flex justify-center items-center">
+      <ChatRoot {WEBSOCKET_URL} {SERVER_URL} inboxId={id} client:only="svelte" />
+    </div>
+  </main>
+</Layout>

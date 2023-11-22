@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Auth from "../components/Auth.svelte"
+
+const SERVER_URL = import.meta.env.SERVER_URL as string
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <div class="h-screen flex justify-center items-center">
+      <Auth {SERVER_URL} client:only="svelte" />
+    </div>
+  </main>
+</Layout>
