@@ -1,10 +1,13 @@
 import { defineConfig } from "astro/config"
 import tailwind from "@astrojs/tailwind"
 import node from "@astrojs/node"
+import dotenv from "dotenv"
 
 import svelte from "@astrojs/svelte"
 
-const port = import.meta.env.PORT ? Number(import.meta.env.PORT) : 3000
+dotenv.config()
+
+const port = process.env.PORT ? Number(process.env.PORT) : 3000
 
 // https://astro.build/config
 export default defineConfig({
